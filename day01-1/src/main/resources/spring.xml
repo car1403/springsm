@@ -5,7 +5,10 @@
 
     <bean id="custRepository" class="edu.sm.cust.repository.CustRepository"></bean>
 
+    <bean id="custOracleRepository" class="edu.sm.cust.repository.CustOracleRepository"></bean>
+
     <bean id="custService" class="edu.sm.cust.service.CustService">
-        <constructor-arg ref="custRepository"></constructor-arg>
+        <property name="repository" ref="custOracleRepository"/>
+<!--        <constructor-arg ref="custRepository"></constructor-arg>-->
     </bean>
 </beans>
