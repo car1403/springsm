@@ -54,6 +54,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="<c:url value="/map"/> ">Map</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value="/chart"/> ">Chart</a>
+            </li>
         </ul>
     </div>
 </nav>
