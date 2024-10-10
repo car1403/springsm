@@ -32,7 +32,7 @@
 </script>
 <div class="col-sm-10">
 
-  <h2>JS3 Page</h2>
+  <h2>JS4 Page</h2>
   <button id="btn_get">Get Data</button>
   <h5>Title description, Sep 2, 2017</h5>
   <table class="table" id="cdata">
