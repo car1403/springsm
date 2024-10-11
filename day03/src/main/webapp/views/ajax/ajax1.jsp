@@ -10,11 +10,13 @@
       $.ajax({
         'url':'<c:url value="/getctime"/>',
         'success':(result)=>{
-          alert(result);
+          this.display(result);
         }
       });
     },
-    display:function(){}
+    display:function(result){
+      $('#ctime').html(result.ctime);
+    }
   };
 
   $(function(){
