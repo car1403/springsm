@@ -3,6 +3,7 @@
 
 <div class="col-sm-10">
 
-  <h2>Login Fail</h2>
-  <h5>ID또는 Password가 틀렸습니다.</h5>
+  <h2>Item Add Page</h2>
+  <h5>Title description, Sep 2, 2017</h5>
+
 </div>

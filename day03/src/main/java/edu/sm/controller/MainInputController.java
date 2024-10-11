@@ -27,12 +27,13 @@ public class MainInputController {
         log.info("ID:"+id);
         log.info("PWD:"+pwd);
         // aaa, 111
+        String next = "redirect:/";
         if(id.equals("aaa") && pwd.equals("111")){
             session.setAttribute("loginid", id);
-            model.addAttribute("center","loginok");
         }else{
             model.addAttribute("center","loginfail");
+            next = "index";
         }
-        return "redirect:/";
+        return next;
     }
 }
