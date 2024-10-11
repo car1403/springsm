@@ -4,7 +4,7 @@
 <script>
   let ajax1 = {
     init:function(){
-      setInterval(()=>{this.getData();},3000);
+      setInterval(()=>{this.getData();},1000);
     },
     getData:function(){
       $.ajax({
