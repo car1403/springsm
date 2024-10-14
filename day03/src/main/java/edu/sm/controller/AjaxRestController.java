@@ -2,6 +2,7 @@ package edu.sm.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import netscape.javascript.JSObject;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,5 +22,17 @@ public class AjaxRestController {
         LocalDateTime now = LocalDateTime.now();
         obj.put("ctime", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(now));
         return obj;
+    }
+    @RequestMapping("/getdata")
+    public Object getdata(){
+        // [{"no":1, "desc":"연무5호"},{},{}]
+        JSONArray arr = new JSONArray();
+        for(int i=1;i<6;i++){
+            JSONObject obj = new JSONObject();
+            obj.put("no",i);
+            obj.put("desc","연무5호");
+            arr.add(obj);
+        }
+        return arr;
     }
 }
