@@ -10,6 +10,8 @@
 <script>
   let map2 = {
     init:function(){
+      this.makemap(37.554472, 126.980841,'남산','s1.jpg',100);
+
       $('#sbtn').click(()=>{
         // 37.554472, 126.980841
         this.makemap(37.554472, 126.980841,'남산','s1.jpg',100);
@@ -54,7 +56,8 @@
 
       function clickHandler(target){
         return function(){
-          location.href='/geo/go?target='+target;
+
+          location.href='<c:url value="/map/go?target='+target+'"/> ';
         };
       };
 
