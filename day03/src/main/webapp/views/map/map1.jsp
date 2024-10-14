@@ -11,6 +11,7 @@
 <script>
   let map1 = {
     map:null,
+    marker:null,
     init:function(){
       this.makemap();
       $('#sbtn').click(()=>{
@@ -24,6 +25,7 @@
       });
     },
     makemap:function(){
+
       let mapContainer = document.getElementById('map');
       let mapOption = {
         center: new kakao.maps.LatLng(36.799165, 127.074981),
@@ -36,19 +38,27 @@
       this.map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
       var markerPosition  = new kakao.maps.LatLng(36.799165, 127.074981);
-      var marker = new kakao.maps.Marker({
+      this.marker = new kakao.maps.Marker({
         position: markerPosition
       });
-      marker.setMap(this.map);
 
-      let iwContent = '<div style="padding:5px;">Hello World! <br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>';
+      this.marker.setMap(this.map);
+
+      let iwContent = '<div>Hello World!</div><img style="width:100px;" src="<c:url value="/img/sm.jpg"/> ">';
       let iwPosition = new kakao.maps.LatLng(36.799165, 127.074981); //인포윈도우 표시 위치입니다
       let infowindow = new kakao.maps.InfoWindow({
         position : iwPosition,
         content : iwContent
       });
-      kakao.maps.event.addListener(marker,'mouseover',overHandler(this.map,marker,infowindow));
-      kakao.maps.event.addListener(marker,'mouseout',outHandler(infowindow));
+      kakao.maps.event.addListener(this.marker,'mouseover',overHandler(this.map,this.marker,infowindow));
+      kakao.maps.event.addListener(this.marker,'mouseout',outHandler(infowindow));
+      kakao.maps.event.addListener(this.marker,'click',clickHandler('http://sunmoon.ac.kr'));
+
+      function clickHandler(target){
+        return function(){
+          location.href=target;
+        };
+      };
 
       function overHandler(map,marker,infowindow){
         return function(){
@@ -65,36 +75,43 @@
 
     },
     goseoul:function(){
+      this.marker.setMap(null);
+
       // 37.554472, 126.980841
       var moveLatLon = new kakao.maps.LatLng(37.554472, 126.980841);
       this.map.panTo(moveLatLon);
       var markerPosition  = new kakao.maps.LatLng(37.554472, 126.980841);
-      var marker = new kakao.maps.Marker({
+      this.marker = new kakao.maps.Marker({
         position: markerPosition
       });
-      marker.setMap(this.map);
+      this.marker.setMap(this.map);
     },
     gobusan:function(){
+      this.marker.setMap(null);
+
       // 35.175109, 129.175474
       var moveLatLon = new kakao.maps.LatLng(35.175109, 129.175474);
       this.map.panTo(moveLatLon);
-
+      this.marker = null;
       var markerPosition  = new kakao.maps.LatLng(35.175109, 129.175474);
-      var marker = new kakao.maps.Marker({
+      this.marker = new kakao.maps.Marker({
         position: markerPosition
       });
-      marker.setMap(this.map);
+
+      this.marker.setMap(this.map);
     },
     gojeju:function(){
+      this.marker.setMap(null);
       // 33.254564, 126.560944
       var moveLatLon = new kakao.maps.LatLng(33.254564, 126.560944);
       this.map.panTo(moveLatLon);
-
+      this.marker = null;
       var markerPosition  = new kakao.maps.LatLng(33.254564, 126.560944);
-      var marker = new kakao.maps.Marker({
+      this.marker = new kakao.maps.Marker({
         position: markerPosition
       });
-      marker.setMap(this.map);
+
+      this.marker.setMap(this.map);
     }
   };
   $(function(){
