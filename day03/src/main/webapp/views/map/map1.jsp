@@ -85,6 +85,34 @@
         position: markerPosition
       });
       this.marker.setMap(this.map);
+
+      let iwContent = '<div>남산</div><img style="width:100px;" src="<c:url value="/img/sm.jpg"/> ">';
+      let iwPosition = new kakao.maps.LatLng(37.554472, 126.980841); //인포윈도우 표시 위치입니다
+      let infowindow = new kakao.maps.InfoWindow({
+        position : iwPosition,
+        content : iwContent
+      });
+      kakao.maps.event.addListener(this.marker,'mouseover',overHandler(this.map,this.marker,infowindow));
+      kakao.maps.event.addListener(this.marker,'mouseout',outHandler(infowindow));
+      kakao.maps.event.addListener(this.marker,'click',clickHandler('<c:url value="/js/js1"/> '));
+
+      function clickHandler(target){
+        return function(){
+          location.href=target;
+        };
+      };
+
+      function overHandler(map,marker,infowindow){
+        return function(){
+          infowindow.open(map, marker);
+        };
+      };
+      function outHandler(infowindow){
+        return function(){
+          infowindow.close();
+        };
+      };
+
     },
     gobusan:function(){
       this.marker.setMap(null);
@@ -99,6 +127,33 @@
       });
 
       this.marker.setMap(this.map);
+
+      let iwContent = '<div>해운대</div><img style="width:100px;" src="<c:url value="/img/sm.jpg"/> ">';
+      let iwPosition = new kakao.maps.LatLng(35.175109, 129.175474); //인포윈도우 표시 위치입니다
+      let infowindow = new kakao.maps.InfoWindow({
+        position : iwPosition,
+        content : iwContent
+      });
+      kakao.maps.event.addListener(this.marker,'mouseover',overHandler(this.map,this.marker,infowindow));
+      kakao.maps.event.addListener(this.marker,'mouseout',outHandler(infowindow));
+      kakao.maps.event.addListener(this.marker,'click',clickHandler('<c:url value="/js/js2"/> '));
+
+      function clickHandler(target){
+        return function(){
+          location.href=target;
+        };
+      };
+
+      function overHandler(map,marker,infowindow){
+        return function(){
+          infowindow.open(map, marker);
+        };
+      };
+      function outHandler(infowindow){
+        return function(){
+          infowindow.close();
+        };
+      };
     },
     gojeju:function(){
       this.marker.setMap(null);
@@ -112,6 +167,33 @@
       });
 
       this.marker.setMap(this.map);
+
+      let iwContent = '<div>서귀포</div><img style="width:100px;" src="<c:url value="/img/sm.jpg"/> ">';
+      let iwPosition = new kakao.maps.LatLng(33.254564, 126.560944); //인포윈도우 표시 위치입니다
+      let infowindow = new kakao.maps.InfoWindow({
+        position : iwPosition,
+        content : iwContent
+      });
+      kakao.maps.event.addListener(this.marker,'mouseover',overHandler(this.map,this.marker,infowindow));
+      kakao.maps.event.addListener(this.marker,'mouseout',outHandler(infowindow));
+      kakao.maps.event.addListener(this.marker,'click',clickHandler('<c:url value="/js/js3"/> '));
+
+      function clickHandler(target){
+        return function(){
+          location.href=target;
+        };
+      };
+
+      function overHandler(map,marker,infowindow){
+        return function(){
+          infowindow.open(map, marker);
+        };
+      };
+      function outHandler(infowindow){
+        return function(){
+          infowindow.close();
+        };
+      };
     }
   };
   $(function(){
