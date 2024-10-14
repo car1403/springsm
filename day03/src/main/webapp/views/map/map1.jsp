@@ -40,6 +40,16 @@
         position: markerPosition
       });
       marker.setMap(this.map);
+
+
+      let iwContent = '<div style="padding:5px;">Hello World! <br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>';
+      let iwPosition = new kakao.maps.LatLng(36.799165, 127.074981); //인포윈도우 표시 위치입니다
+      let infowindow = new kakao.maps.InfoWindow({
+        position : iwPosition,
+        content : iwContent
+      });
+      infowindow.open(this.map, marker);
+
     },
     goseoul:function(){
       // 37.554472, 126.980841
