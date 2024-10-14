@@ -41,14 +41,27 @@
       });
       marker.setMap(this.map);
 
-
       let iwContent = '<div style="padding:5px;">Hello World! <br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>';
       let iwPosition = new kakao.maps.LatLng(36.799165, 127.074981); //인포윈도우 표시 위치입니다
       let infowindow = new kakao.maps.InfoWindow({
         position : iwPosition,
         content : iwContent
       });
-      infowindow.open(this.map, marker);
+      kakao.maps.event.addListener(marker,'mouseover',overHandler(this.map,marker,infowindow));
+      kakao.maps.event.addListener(marker,'mouseout',outHandler(infowindow));
+
+      function overHandler(map,marker,infowindow){
+        return function(){
+          infowindow.open(map, marker);
+        };
+      };
+      function outHandler(infowindow){
+        return function(){
+          infowindow.close();
+        };
+      };
+
+
 
     },
     goseoul:function(){
