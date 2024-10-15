@@ -10,6 +10,7 @@
     width:200px;
     height:400px;
     border:2px solid darkred;
+    overflow: auto;
   }
 </style>
 <script>
@@ -103,6 +104,8 @@
       // }
       let imgsrc1 = 'https://t1.daumcdn.net/localimg/localimages/07/2012/img/marker_p.png';
       let imgsrc2 = '<c:url value="/img/m.jpg"/> ';
+
+      $('#ms').empty();
 
       $(datas).each(function(index, item){
 

@@ -15,6 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @Slf4j
@@ -35,6 +36,20 @@ public class AjaxRestController {
         log.info("Size"+markers.size());
 
         return markers;
+    }
+
+    @RequestMapping("/getbike")
+    public Object getbike(){
+        JSONObject obj = new JSONObject();
+        double lat = 36.789165;
+        double lng = 127.064981;
+        Random r = new Random();
+        float num = r.nextFloat(1);
+        lat += num/10;
+        lng += num/10;
+        obj.put("lat", lat);
+        obj.put("lng", lng);
+        return obj;
     }
 
 
