@@ -79,7 +79,9 @@
       $.ajax({
         url:'/getmarkers',
         data:{target:target},
+        async:false,
         success:function(results){
+          //alert(results);
           datas = results;
         }
       });

@@ -21,6 +21,7 @@ import java.util.List;
 public class AjaxRestController {
     @RequestMapping("/getmarkers")
     public Object getmarkers(@RequestParam("target") int target){
+        log.info("Tager"+target);
         List<Marker> markers = new ArrayList<Marker>();
         if(target == 100){
             markers.add(new Marker(37.564472,126.990841,"순대국1","ss1.jpg", 101));
@@ -31,6 +32,8 @@ public class AjaxRestController {
         }else{
 
         }
+        log.info("Size"+markers.size());
+
         return markers;
     }
 
