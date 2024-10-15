@@ -91,6 +91,7 @@
       let imgsrc2 = '<c:url value="/img/m.jpg"/> ';
 
       $(datas).each(function(index, item){
+
         let imgsize = new kakao.maps.Size(30,30);
         let markerimg = new kakao.maps.MarkerImage(imgsrc2, imgsize);
         let markerposition = new kakao.maps.LatLng(item.lat, item.lng);

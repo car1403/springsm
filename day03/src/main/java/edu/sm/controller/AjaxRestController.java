@@ -1,5 +1,6 @@
 package edu.sm.controller;
 
+import edu.sm.dto.Marker;
 import lombok.extern.slf4j.Slf4j;
 import netscape.javascript.JSObject;
 import org.json.simple.JSONArray;
@@ -12,10 +13,28 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @Slf4j
 public class AjaxRestController {
+    @RequestMapping("/getmarkers")
+    public Object getmarkers(@RequestParam("target") int target){
+        List<Marker> markers = new ArrayList<Marker>();
+        if(target == 100){
+            markers.add(new Marker(37.564472,126.990841,"순대국1","ss1.jpg", 101));
+            markers.add(new Marker(37.544472,126.970841,"순대국2","ss2.jpg", 102));
+            markers.add(new Marker(37.564472,126.970841,"순대국3","ss3.jpg", 103));
+        }else if(target == 200){
+
+        }else{
+
+        }
+        return markers;
+    }
+
+
     @RequestMapping("/checkid")
     public Object checkid(@RequestParam("rid") String id){
         JSONObject obj = new JSONObject();

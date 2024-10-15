@@ -8,7 +8,7 @@
   }
 </style>
 <script>
-  let map2 = {
+  let map3 = {
     init:function(){
       this.makemap(37.554472, 126.980841,'남산','s1.jpg',100);
 
@@ -29,7 +29,7 @@
       let mapContainer = document.getElementById('map');
       let mapOption = {
         center: new kakao.maps.LatLng(lat, lng),
-        level: 5
+        level: 7
       };
       let map = new kakao.maps.Map(mapContainer, mapOption);
       var mapTypeControl = new kakao.maps.MapTypeControl();
@@ -71,21 +71,82 @@
           infowindow.close();
         };
       };
+      this.markers(target, map);
     },
-    markers:function(target){
+    markers:function(target, map){
       // lat, lng, title, img, code
       let datas = [];
+      $.ajax({
+        url:'/getmarkers',
+        data:{target:target},
+        success:function(results){
+          datas = results;
+        }
+      });
+      // if(target == 100){
+      //   datas = [
+      //     {lat:37.564472, lng:126.990841, title:'순대국1', img:'ss1.jpg', code:101},
+      //     {lat:37.544472, lng:126.970841, title:'순대국2', img:'ss2.jpg', code:102},
+      //     {lat:37.564472, lng:126.970841, title:'순대국3', img:'ss3.jpg', code:103}
+      //   ];
+      // }else if(target == 200){
+      //
+      // }else{
+      //
+      // }
+      let imgsrc1 = 'https://t1.daumcdn.net/localimg/localimages/07/2012/img/marker_p.png';
+      let imgsrc2 = '<c:url value="/img/m.jpg"/> ';
+
+      $(datas).each(function(index, item){
+
+        let imgsize = new kakao.maps.Size(30,30);
+        let markerimg = new kakao.maps.MarkerImage(imgsrc2, imgsize);
+        let markerposition = new kakao.maps.LatLng(item.lat, item.lng);
+        let marker = new kakao.maps.Marker({
+          map: map,
+          position:markerposition,
+          image:markerimg
+        });
+        let iwContent = '<p>'+item.title+'</p>';
+        iwContent += '<img style="width:150px;" src="<c:url value="/img/'+item.img+'"/> ">';
+        let iwPosition = new kakao.maps.LatLng(item.lat,item.lng); //인포윈도우 표시 위치입니다
+        let infowindow = new kakao.maps.InfoWindow({
+          position : iwPosition,
+          content : iwContent
+        });
+        kakao.maps.event.addListener(marker,'mouseover',overHandler(map,marker,infowindow));
+        kakao.maps.event.addListener(marker,'mouseout',outHandler(infowindow));
+        kakao.maps.event.addListener(marker,'click',clickHandler(item.code));
+
+        function clickHandler(target){
+          return function(){
+
+            location.href='<c:url value="/map/go?target='+target+'"/> ';
+          };
+        };
+
+        function overHandler(map,marker,infowindow){
+          return function(){
+            infowindow.open(map, marker);
+          };
+        };
+        function outHandler(infowindow){
+          return function(){
+            infowindow.close();
+          };
+        };
+      });
 
     }
   };
 
   $(function(){
-    map2.init();
+    map3.init();
   });
 </script>
 <div class="col-sm-10">
 
-  <h2>Map2 Page</h2>
+  <h2>Map3 Page</h2>
   <button id="sbtn">Seoul</button>
   <button id="bbtn">Busan</button>
   <button id="jbtn">Jeju</button>
