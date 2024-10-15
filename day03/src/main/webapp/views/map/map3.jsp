@@ -2,8 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
   #map{
-    width:600px;
-    height:500px;
+    width:500px;
+    height:400px;
+    border:2px solid darkred;
+  }
+  #ms{
+    width:200px;
+    height:400px;
     border:2px solid darkred;
   }
 </style>
@@ -137,6 +142,12 @@
             infowindow.close();
           };
         };
+        let content ='<p>';
+        content += '<a href="/map/go?target='+item.code+'">'+item.code+'</a>';
+        content += item.title;
+        content += '</p>';
+        $('#ms').append(content);
+
       });
 
     }
@@ -152,6 +163,12 @@
   <button id="sbtn">Seoul</button>
   <button id="bbtn">Busan</button>
   <button id="jbtn">Jeju</button>
-  <div id="map"></div>
-
+  <div class="row">
+    <div class="col-sm-7">
+      <div id="map"></div>
+    </div>
+    <div class="col-sm-5">
+      <div id="ms"></div>
+    </div>
+  </div>
 </div>
