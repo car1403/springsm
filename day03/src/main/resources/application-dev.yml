@@ -12,7 +12,7 @@ spring:
 logging:
   level:
     root: info
-
+#  error > info > debug
 
 app:
   dir:
