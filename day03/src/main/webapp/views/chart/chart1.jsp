@@ -36,11 +36,6 @@
                 series = chart.series[0];
 
         setInterval(function () {
-          // const x = (new Date()).getTime(), // current time
-          //         y = Math.random();
-          //
-          // series.addPoint([x, y], true, true);
-          // console.log(x+'  :  '+y);
 
           $.ajax({
             url:'/charts/chart1',
