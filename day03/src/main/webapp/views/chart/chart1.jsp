@@ -37,10 +37,7 @@
                   'target="_blank">Wikipedia.com</a>'
         },
         xAxis: {
-          categories: [
-            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
-            'Oct', 'Nov', 'Dec'
-          ]
+          categories: datas.x
         },
         yAxis: {
           title: {
@@ -55,7 +52,7 @@
             enableMouseTracking: false
           }
         },
-        series: datas
+        series: datas.result
       });
     }
   };
