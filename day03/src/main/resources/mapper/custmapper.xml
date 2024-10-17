@@ -10,9 +10,6 @@
     <select id="select" resultType="custDto">
         SELECT * FROM cust
     </select>
-    <select id="getPage" resultType="custDto">
-        SELECT * FROM cust
-    </select>
     <insert id="insert" parameterType="custDto">
         INSERT INTO cust VALUES (#{id},#{pwd},#{name})
     </insert>
