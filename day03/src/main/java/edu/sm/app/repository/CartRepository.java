@@ -10,6 +10,5 @@ import java.util.List;
 
 @Repository
 @Mapper
-public interface CartRepository extends SMRepository<Integer, CartDto> {
-    List<CartDto> findByName(String name);
+public interface CartRepository extends SMRepository<CartDto, CartDto> {
 }
