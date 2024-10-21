@@ -54,7 +54,7 @@
       <form id="register_form">
         <div class="form-group">
           <label for="id">Id:<span id="id_span"></span></label>
-          <input type="text" value="${cust.custId}" class="form-control" placeholder="Enter id" id="id" name="custId">
+          <input type="text" readonly value="${cust.custId}" class="form-control" placeholder="Enter id" id="id" name="custId">
         </div>
         <div class="form-group">
           <label for="pwd">Password:</label>
