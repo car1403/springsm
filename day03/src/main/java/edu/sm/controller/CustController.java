@@ -37,6 +37,12 @@ public class CustController {
         model.addAttribute("center",dir+"detail");
         return "index";
     }
+    @RequestMapping("/updateimpl")
+    public String updateimpl(Model model,  CustDto custDto
+    ) throws Exception {
+        custService.modify(custDto);
+        return "redirect:/cust/detail?id="+custDto.getCustId();
+    }
     @RequestMapping("/add")
     public String add(Model model) {
         model.addAttribute("left",dir+"left");

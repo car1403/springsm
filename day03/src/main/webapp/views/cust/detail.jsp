@@ -37,7 +37,7 @@
       // method, action
       $('#register_form').attr('method','post');
 
-      $('#register_form').attr('action','/registerimpl');
+      $('#register_form').attr('action','/cust/updateimpl');
       $('#register_form').submit();
     }
   };
