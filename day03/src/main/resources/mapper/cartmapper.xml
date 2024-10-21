@@ -4,11 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.sm.app.repository.CartRepository">
 
-
-    <select id="findByName" resultType="cartDto" parameterType="String">
-        SELECT * FROM cart WHERE item_name LIKE CONCAT('%', #{name}, '%')
-    </select>
-
     <resultMap id="cartResultMap" type="CartDto">
         <id column="cart_user_id" property="cartUserId"/>
         <id column="cart_item_id" property="cartItemId"/>
@@ -41,17 +36,18 @@
             reg_date,
             update_date
         from cart as c
-            inner join item i on c.cart_item_id = i.item_id
+                 inner join item i on c.cart_item_id = i.item_id
     </select>
     <insert id="insert" parameterType="cartDto">
-        insert into cart values (#{custId},#{itemId},#{count},SYSDATE() )
-            on duplicate key update count= count+#{count}
+        insert into cart values (#{cartCustId},#{cartItemId},#{cartCount},SYSDATE() )
+            on duplicate key update cart_count= cart_count+#{cartCount}
     </insert>
     <update id="update" parameterType="cartDto">
-        UPDATE cart SET count=#{count} WHERE cust_id=#{custId} and  item_id=#{itemId}
+        UPDATE cart SET cart_count=#{cartCount} WHERE cart_cust_id=#{cartCustId}
+                                         and  cart_item_id=#{cartItemId}
     </update>
-    <delete id="delete" parameterType="Integer">
-        DELETE FROM cart WHERE item_id=#{id}
+    <delete id="delete" parameterType="cartDto">
+        DELETE FROM cart WHERE cart_cust_id=#{cartCustId}
+                               and  cart_item_id=#{cartItemId}
     </delete>
-
 </mapper>
