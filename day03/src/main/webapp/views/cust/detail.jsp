@@ -8,6 +8,11 @@
         this.check();
       });
       $('#delete_btn').click(() => {
+        let id = $('#id').val();
+        let c = confirm("삭제하시겠습니까 ?");
+        if(c == true){
+          location.href='<c:url value="/cust/deleteimpl"/>'+'?id='+id;
+        }
 
       });
     },
