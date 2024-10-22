@@ -77,9 +77,10 @@ public class CustController {
     @RequestMapping("/findimpl")
     public String findimpl(Model model, Search search, @RequestParam(value = "pageNo", defaultValue = "1") int pageNo) throws Exception {
         PageInfo<CustDto> p;
+
         p = new PageInfo<>(custService.getFindPage(pageNo, search), 3); // 5:하단 네비게이션 개수
         model.addAttribute("cpage",p);
-
+        model.addAttribute("target","cust");
         model.addAttribute("search",search);
         model.addAttribute("left",dir+"left");
         model.addAttribute("center",dir+"search");
