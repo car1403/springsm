@@ -57,8 +57,9 @@ public class MainInputController {
                             CustDto custDto,
                             HttpSession session) throws Exception {
         log.info("Cust Info: "+custDto.toString());
-        custService.add(custDto);
-        session.setAttribute("loginid",custDto);
+            custService.add(custDto);
+
+            session.setAttribute("loginid",custDto);
         model.addAttribute("center","registerok");
         return "index";
     }
