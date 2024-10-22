@@ -40,7 +40,7 @@
       </tr>
     </thead>
     <tbody>
-      <c:forEach var="c" items="${custs}">
+      <c:forEach var="c" items="${cpage.getList()}">
         <tr>
           <td><a href="/cust/detail?id=${c.custId}">${c.custId}</a></td>
           <td>${c.custPwd}</td>
