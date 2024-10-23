@@ -29,7 +29,16 @@ public class ItemService implements SMService<Integer, ItemDto> {
 
     @Override
     public void modify(ItemDto itemDto) throws Exception {
-        itemRepository.update(itemDto);
+        if(itemDto.getImage().isEmpty()){
+            itemRepository.update(itemDto);
+        }else{
+            String oldimg = itemDto.getImgName();
+            itemDto.setImgName(itemDto.getImage().getOriginalFilename());
+            itemRepository.update(itemDto);
+
+            FileUploadUtil.saveFile(itemDto.getImage(),imgdir);
+            FileUploadUtil.deleteFile(oldimg,imgdir);
+        }
     }
 
     @Override

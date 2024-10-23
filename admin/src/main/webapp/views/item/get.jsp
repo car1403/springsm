@@ -56,10 +56,17 @@
                             <td>
                                 <fmt:formatNumber type="number" pattern="###,###원" value="${item.itemPrice}" />                           </td>
                             <td>
-                                ${item.regDate}
+                                <fmt:parseDate value="${ item.regDate }"
+                                               pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime" type="both" />
+                                <fmt:formatDate pattern="yyyy년MM월dd일 HH시mm분" value="${ parsedDateTime }" />
+
+
                             </td>
                             <td>
-                                ${item.updateDate}
+                                <fmt:parseDate value="${ item.updateDate }"
+                                               pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime" type="both" />
+                                <fmt:formatDate pattern="yyyy년MM월dd일 HH시mm분" value="${ parsedDateTime }" />
+
                             </td>
                         </tr>
                     </c:forEach>
