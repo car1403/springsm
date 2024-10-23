@@ -43,6 +43,8 @@ public class ItemService implements SMService<Integer, ItemDto> {
 
     @Override
     public void del(Integer s) throws Exception {
+        String imgname = itemRepository.selectOne(s).getImgName();
+        FileUploadUtil.deleteFile(imgname,imgdir);
         itemRepository.delete(s);
     }
 

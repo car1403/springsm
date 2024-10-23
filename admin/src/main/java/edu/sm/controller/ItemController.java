@@ -43,6 +43,12 @@ public class ItemController {
         itemService.modify(itemDto);
         return "redirect:/item/detail?id="+itemDto.getItemId();
     }
+    @RequestMapping("/delete")
+    public String delete(Model model, @RequestParam("id") int id) throws Exception {
+        // id, name, price, imgname, or newimg
+        itemService.del(id);
+        return "redirect:/item/get";
+    }
 
     @RequestMapping("/get")
     public String get(Model model) throws Exception {
