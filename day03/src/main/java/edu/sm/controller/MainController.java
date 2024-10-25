@@ -21,7 +21,8 @@ public class MainController {
 
     @Value("${app.key.wkey}")
     String wkey;
-
+    @Value("${app.key.wkey2}")
+    String wkey2;
     @RequestMapping("/")
     public String main(Model model) {
         log.info("Start Main ,,,,,,");
@@ -57,6 +58,13 @@ public class MainController {
         return WeatherUtil.getWeather("108",wkey);
     }
 
+    @RequestMapping("/wh2")
+    @ResponseBody
+    public Object wh2(Model model) throws IOException, ParseException {
+        log.info("------------------- wh2");
+        log.info(WeatherUtil.getWeather2("1835848",wkey2).toString());
+        return WeatherUtil.getWeather2("1835848",wkey2);
+    }
 }
 
 
