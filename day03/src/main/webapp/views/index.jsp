@@ -88,6 +88,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<c:url value="/item"/> ">Item</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value="/webcam"/> ">WebCam</a>
+                </li>
             </c:if>
         </ul>
     </div>
