@@ -30,7 +30,7 @@
         id:'',
         stompClient:null,
         init:function(){
-            this.id = $('#adm_id').text();
+            this.id = $('#usr_id').text();
             $('#connect').click(()=>{
                 this.connect();
             });
@@ -122,7 +122,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <div class="col-sm-5">
-                    <h1 id="adm_id">${sessionScope.loginid.custId}</h1>
+                    <h1 id="usr_id">${sessionScope.loginid.custId}</h1>
                     <H1 id="status">Status</H1>
                     <button id="connect">Connect</button>
                     <button id="disconnect">Disconnect</button>
