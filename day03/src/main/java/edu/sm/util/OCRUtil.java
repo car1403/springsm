@@ -16,7 +16,7 @@ public class OCRUtil {
         JSONObject obj = null;
 
         String apiURL = "https://ob9suhs003.apigw.ntruss.com/custom/v1/36166/fc8085c312a614ef5f60fb796f3f9996ba5c6d29bb250a5437ba11bafc58f0bf/infer";
-        String secretKey = "d0VvYXRabmpEb1BKaUd6c3hoR0hUUVV5Q01WYm54SkI=";
+        String secretKey = "ddd=";
         String imageFile = imgpath+imgname;
 
         try {
