@@ -81,7 +81,7 @@
         websocket.init();
     });
 </script>
-<div class="container">
+<div class="col-sm-10">
     <h2>ChatBot Page</h2>
     <div class="col-sm-5">
         <h1 id="login_id">${sessionScope.loginid.custId}</h1>
