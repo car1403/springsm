@@ -43,6 +43,10 @@
                     'content1' : $('#totext').val()
                 });
                 this.stompClient.send('/sendchatbot', {}, msg);
+                $("#to").prepend(
+                    "<h4>" + this.id +":"+
+                    $('#totext').val()
+                    + "</h4>");
             });
         },
         connect:function(){
@@ -56,7 +60,7 @@
                 // /sendto/me/user01
                 this.subscribe('/sendto/'+sid, function(msg) {
                     $("#to").prepend(
-                        "<h4>" + JSON.parse(msg.body).sendid +":"+
+                        "<h4>" + "Chatbot" +":"+
                         JSON.parse(msg.body).content1
                         + "</h4>");
                 });
