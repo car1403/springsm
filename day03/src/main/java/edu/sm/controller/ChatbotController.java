@@ -23,11 +23,15 @@ public class ChatbotController {
     @Value("${app.key.chatbot}")
     String key;
     @MessageMapping("/sendchatbot") // 특정 Id에게 전송
-    public void sendchat(Msg msg, SimpMessageHeaderAccessor headerAccessor) {
+    public void sendchat(Msg msg, SimpMessageHeaderAccessor headerAccessor) throws Exception {
         String id = msg.getSendid();
         String content = msg.getContent1();
         log.info("-------------------------");
         log.info(msg.toString());
+
+        String result = ChatBotUtil.getMsg(url,key, content);
+        msg.setContent1(result);
+
         template.convertAndSend("/sendto/"+id,msg);
 
     }
