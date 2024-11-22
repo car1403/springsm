@@ -37,6 +37,7 @@ public class MainController {
         log.info("Start Main ,,,,,,");
         return "index";
     }
+
     @RequestMapping("/ocr")
     public String ocr(Model model) {
         model.addAttribute("center", "ocr");
@@ -59,6 +60,11 @@ public class MainController {
     public String chat(Model model) {
         model.addAttribute("serverurl", serverurl);
         model.addAttribute("center", "chat");
+        return "index";
+    }
+    @RequestMapping("/chatbot")
+    public String chatbot(Model model) {
+        model.addAttribute("center", "chatbot");
         return "index";
     }
 
