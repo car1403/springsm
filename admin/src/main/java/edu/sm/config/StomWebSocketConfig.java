@@ -18,8 +18,7 @@ public class StomWebSocketConfig implements WebSocketMessageBrokerConfigurer, We
     }
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(new WebRTCSignalingHandler(), "/signal")
-                .setAllowedOrigins("*");
+        registry.addHandler(new WebRTCSignalingHandler(), "/signal").setAllowedOrigins("*");
     }
 
 
