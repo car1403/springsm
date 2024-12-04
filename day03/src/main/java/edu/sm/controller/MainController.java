@@ -37,7 +37,13 @@ public class MainController {
         log.info("Start Main ,,,,,,");
         return "index";
     }
-
+    @RequestMapping("/webrtc")
+    public String webrtc(Model model) {
+        model.addAttribute("serverurl",serverurl);
+        model.addAttribute("roomId", "1");    // 하드코딩된 roomId
+        model.addAttribute("center", "webrtc");
+        return "index";
+    }
     @RequestMapping("/ocr")
     public String ocr(Model model) {
         model.addAttribute("center", "ocr");
