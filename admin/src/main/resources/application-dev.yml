@@ -45,3 +45,5 @@ app:
   key:
     algo: PBEWithMD5AndDES
     skey: mykey
+    papago-id: ybt7zb8ksu
+    papago-secret: qDWCZpp5IfhvbQ75cz6kXdj2y8P3H8Afha3gd882
