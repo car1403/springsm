@@ -88,9 +88,8 @@
 
     const configuration = {
         iceServers: [{
-            urls: 'turn:127.0.0.1:3478',
-            username: 'turnuser',
-            credential: 'Turn2024!@#'
+            urls: 'stun:stun.l.google.com:19302'
+
         }]
     };
 

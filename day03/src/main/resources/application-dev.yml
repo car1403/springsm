@@ -1,6 +1,12 @@
 # 1. Tomcat Server Setting
 server:
-  port: 80
+  port: 81
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12  # 인증서 파일 경로 <- keystore.p12를
+    # src/main/resources밑에 뒀다면 경로 수정 X
+    key-store-password: 111111  # 인증서 생성 시 설정한 비밀번호
+    key-store-type: PKCS12  # 인증서 형식
   servlet:
     encoding:
       charset: UTF-8
@@ -35,7 +41,7 @@ logging:
 # 5. Application Environment Setting
 app:
   url:
-    server-url: http://210.119.34.77:81
+    server-url: https://210.119.34.77:8443
     chatbot: https://3vd0tljt1i.apigw.ntruss.com/custom/v1/16309/fc8085c312a614ef5f60fb796f3f9996ba5c6d29bb250a5437ba11bafc58f0bf
   dir:
     imgdir: file:///c:/springsm/imgs/
