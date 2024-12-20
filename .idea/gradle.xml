@@ -11,16 +11,7 @@
           </set>
         </option>
       </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="delegatedBuild" value="false" />
-        <option name="testRunner" value="PLATFORM" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/day02" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/day02" />
-          </set>
-        </option>
-      </GradleProjectSettings>
+
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/day03" />
         <option name="modules">
@@ -43,6 +34,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/day03_iot" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/dk" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/dk" />
           </set>
         </option>
       </GradleProjectSettings>

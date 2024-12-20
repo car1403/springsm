@@ -1,0 +1,18 @@
+# 1. Tomcat Server Setting
+server:
+  port: 80
+
+# 4. Logging Setting
+logging:
+  level:
+    root: info
+  #  error > info > debug
+
+
+
+
+
+
+
+
+

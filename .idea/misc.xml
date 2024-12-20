@@ -3,12 +3,11 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/admin" />
-    <file type="web" url="file://$PROJECT_DIR$/day02" />
-    <file type="web" url="file://$PROJECT_DIR$/day02-1" />
     <file type="web" url="file://$PROJECT_DIR$/day03" />
     <file type="web" url="file://$PROJECT_DIR$/day03_1" />
     <file type="web" url="file://$PROJECT_DIR$/day03_iot" />
     <file type="web" url="file://$PROJECT_DIR$/demo" />
+    <file type="web" url="file://$PROJECT_DIR$/dk" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
